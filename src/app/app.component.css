@@ -1,0 +1,86 @@
+.header-p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: bold;
+}
+.header-custom {
+    margin-left: 10px;
+    margin-top: 5px;
+}
+.side-header {
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: bold;
+    margin: 10px;
+}
+.sidenav-subheader {
+    text-align: center;
+    margin-bottom: 0px;
+}
+.sidenav-custom {
+    margin: 10px;
+    border-radius: 5px;
+}
+
+ul > li {
+    margin-left: 10px;
+    margin-bottom: 5px;
+    width: auto;
+    background-color: rgb(196, 225, 154);
+}
+ul > li:hover {
+    background-color: rgb(124, 186, 1);
+}
+ul > li:active {
+    background-color: rgb(124, 186, 1);
+}
+
+.ul1 {
+    column-count: 2;
+    column-gap: 0;
+}
+.list-item-text {
+    margin-left: 30%;
+}
+.sidebar-nav {
+    column-count: 2;
+}
+.missionNameTitle {
+    margin-top: 20px;
+    color: blue;
+}
+.well {
+    height: 400px;
+    background-color: white;
+}
+.image-span-bg-color-grey {
+    background-color: rgb(242, 242, 242);
+}
+ol > li {
+    list-style-type: disc;
+    color: blue;
+}
+.footer-p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: bold;
+}
+.footer-custom {
+    margin-left: 40%;
+    margin-top: 5px;
+}
+.ul2 {
+    display: inline;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+.li2 {
+display: inline-block;
+width: 50%;
+}
+
