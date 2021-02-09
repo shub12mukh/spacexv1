@@ -22,6 +22,7 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
+## Deploying notes
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+The application has been deployed to s3 bucket of AWS.
+>>>http://aws-spacex-app.s3-website.ap-south-1.amazonaws.com/
