@@ -8,6 +8,7 @@ import { RequestModel } from './request-model';
 })
 export class AppComponent implements OnInit{
   title = 'spaceXv1';
+  arrayYearForFilter: number[];
   filterTitleHeader = 'filters';
   filterOnYearHeader = 'launch year';
   filterOnSucessfullLaunch = 'successful launch';
@@ -15,16 +16,16 @@ export class AppComponent implements OnInit{
   yearName;
   responseDatas:any[];
   requestParam = new RequestModel();
-  // hard coded value, wil change later
-  arrayYearForFilter = [2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021];
   developedBy: string = "developed by shubham mukherjee";
   constructor(private api: ApicallsService){
     
   };
   ngOnInit(){
+    //get all years
+    this.arrayYearForFilter = this.api.getYear();
+    //default no filter criteria applied on API call 
     this.api.getAllData().subscribe(data => {
       this.responseDatas = data;
-      console.log(this.responseDatas);
     });
   }
   onFilterYearSearch(year: String){

@@ -1,0 +1,16 @@
+<figure>
+    <img class="img-thumbnail img-thumbnail-custom" src="{{ contentData.links.mission_patch }}" alt="Card image">
+    <figcaption>
+        <p class="missionNameTitle">{{ contentData.mission_name + '#' +
+            contentData.flight_number }}
+        </p>
+        <p><b>Mission Ids:</b></p>
+        <ol>
+            <li *ngFor="let missionId of contentData.mission_id">{{ missionId }}</li>
+        </ol>
+        <p><b>Launch Year: {{ contentData.launch_year }}</b></p>
+        <p><b>Successful launch: {{ contentData.launch_success }}</b></p>
+        <p><b>Successful landing: {{ contentData.rocket.first_stage.cores[0]?.land_success
+                }}</b></p>
+    </figcaption>
+</figure>

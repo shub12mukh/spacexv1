@@ -1,13 +1,3 @@
-.header-p {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 25px;
-    font-style: normal;
-    font-weight: bold;
-}
-.header-custom {
-    margin-left: 10px;
-    margin-top: 5px;
-}
 .side-header {
     color: black;
     font-family: Arial, Helvetica, sans-serif;
@@ -48,13 +38,14 @@ ul > li:active {
 .sidebar-nav {
     column-count: 2;
 }
-.missionNameTitle {
-    margin-top: 20px;
-    color: blue;
-}
 .well {
-    height: 400px;
+    height: 500px;
     background-color: white;
+}
+.well-xs {
+    width: 50%;
+    margin: auto;
+    margin-bottom: 30px;
 }
 .image-span-bg-color-grey {
     background-color: rgb(242, 242, 242);
@@ -63,24 +54,51 @@ ol > li {
     list-style-type: disc;
     color: blue;
 }
-.footer-p {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 25px;
-    font-style: normal;
-    font-weight: bold;
-}
-.footer-custom {
-    margin-left: 40%;
-    margin-top: 5px;
-}
 .ul2 {
     display: inline;
     list-style: none;
     margin: 0;
     padding: 0;
-  }
-.li2 {
-display: inline-block;
-width: 50%;
 }
-
+.li2 {
+    display: inline-block;
+    width: 50%;
+}
+hr{
+    width: 85% !important;
+    margin-top: 2px !important;
+    border-top: 2px solid #eee !important;
+    margin-bottom: 12px !important;
+}
+@media only screen and (max-width: 350px) {
+    .well-xs {
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-bottom: 30px;
+        width: auto;
+    }
+}
+@media screen and (max-width: 700px) {
+    div.hide-sm {
+        display: none;
+    }
+    div.hide-md {
+        display: none;
+    }
+}
+@media screen and (min-width: 700px) and (max-width: 1024px) {
+    div.hide-xs {
+        display: none;
+    }
+    div.hide-md {
+        display: none;
+    }
+}
+@media screen and (min-width: 1024px){
+    div.hide-xs {
+        display: none;
+    }
+    div.hide-sm {
+        display: none;
+    }
+}

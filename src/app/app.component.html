@@ -1,11 +1,9 @@
-<header class="header-custom">
-    <p class="header-p">SpaceX Launch Programs</p>
-</header>
+<app-header-app></app-header-app>
 <nav class="navbar visible-xs">
     <div class="container-fluid">
         <div class="row content">
             <div class="col-sm-3 sidenav sidenav-custom">
-                <h3 class="side-header">{{ filterTitleHeader | titlecase }}</h3>
+                <h3 class="side-header">Head</h3>
                 <p class="sidenav-subheader">{{ filterOnYearHeader | titlecase}}</p>
                 <hr>
                 <ul class="list-group ul1">
@@ -63,56 +61,33 @@
             </ul>
         </div>
         <br>
-
         <div class="col-sm-9">
-            <div class="row visible-sm">
-                <div class="col-sm-6" *ngFor="let responseData of responseDatas">
-                    <div class="well">
+            <!-- For Extra small screen -->
+            <div class="row visible-xs hide-xs">
+                <div class="col-sm-12" *ngFor="let responseData of responseDatas">
+                    <div class="well well-xs">
                         <div class="card">
-                            <span>
-                                <img class="card-img-top image-span-bg-color-grey"
-                                    src="{{ responseData.links.mission_patch }}" alt="Card image"
-                                    style="width:200px; height: 220px;">
-                            </span>
-                            <div class="card-body">
-                                <p class="missionNameTitle">{{ responseData.mission_name + '#' +
-                                    responseData.flight_number }}
-                                </p>
-                                <p><b>Mission Ids:</b></p>
-                                <ol>
-                                    <li *ngFor="let missionId of responseData.mission_id">{{ missionId }}</li>
-                                </ol>
-                                <p><b>Launch Year: {{ responseData.launch_year }}</b></p>
-                                <p><b>Successful launch: {{ responseData.launch_success }}</b></p>
-                                <p><b>Successful landing: {{ responseData.rocket.first_stage.cores[0]?.land_success
-                                        }}</b></p>
-                            </div>
+                            <app-info-card [contentData]="responseData"></app-info-card>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row hidden-sm">
-                <div class="col-md-3" *ngFor="let responseData of responseDatas">
+            <!-- For table level view -->
+            <div class="row visible-sm hide-sm">
+                <div class="col-sm-6" *ngFor="let responseData of responseDatas">
                     <div class="well">
                         <div class="card">
-                            <span>
-                                <img class="card-img-top image-span-bg-color-grey"
-                                    src="{{ responseData.links.mission_patch }}" alt="Card image"
-                                    style="width:180px; height: 170px;">
-                            </span>
-                            <div class="card-body">
-                                <p class="missionNameTitle">{{ responseData.mission_name + '#' +
-                                    responseData.flight_number }}
-                                </p>
-                                <p><b>Mission Ids:</b></p>
-                                <ol>
-                                    <li *ngFor="let missionId of responseData.mission_id">{{ missionId }}</li>
-                                </ol>
-                                <p><b>Launch Year: {{ responseData.launch_year }}</b></p>
-                                <p><b>Successful launch: {{ responseData.launch_success }}</b></p>
-                                <p><b>Successful landing: {{ responseData.rocket.first_stage.cores[0]?.land_success
-                                        }}</b></p>
-                            </div>
+                            <app-info-card [contentData]="responseData"></app-info-card>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- For desktop level view -->
+            <div class="row hide-md">
+                <div class="col-sm-3" *ngFor="let responseData of responseDatas">
+                    <div class="well">
+                        <div class="card">
+                            <app-info-card [contentData]="responseData"></app-info-card>
                         </div>
                     </div>
                 </div>
@@ -120,6 +95,4 @@
         </div>
     </div>
 </div>
-<footer class="footer-custom">
-    <p class="footer-p">{{ developedBy | titlecase }}</p>
-</footer>
+<app-footer-app></app-footer-app>

@@ -1,0 +1,11 @@
+.img-thumbnail-custom {
+    width: fit-content;
+    height: auto;
+    width:fit-content; 
+    height:200px;
+    background-color: rgb(242, 242, 242);
+}
+.missionNameTitle {
+    margin-top: 20px;
+    color: blue;
+}

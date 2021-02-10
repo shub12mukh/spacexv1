@@ -7,7 +7,9 @@ import { RequestModel } from './request-model';
   providedIn: 'root'
 })
 export class ApicallsService {
-  private api = 'https://api.spacexdata.com/v3/launches?limit=100'
+  private api = 'https://api.spacexdata.com/v3/launches?limit=100';
+  // hard coded value, wil change later
+  private arrayYearForFilter = [2006,2008,2010,2012,2014,2016,2018,2020,2007,2009,2011,2013,2015,2017,2019,2021];
   constructor(private httpClient: HttpClient) { }
   public getAllData():Observable<any>{
     return this.httpClient.get(this.api);
@@ -19,7 +21,9 @@ export class ApicallsService {
         params = params.append(property, requestParam[property]);
       };
     }
-    console.log(params);
     return this.httpClient.get(this.api, {params : params});
+  }
+  public getYear(): number[]{
+    return this.arrayYearForFilter
   }
 }
