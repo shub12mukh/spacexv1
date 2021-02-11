@@ -57,7 +57,7 @@ hr {
 }
 .year-btn-custom:active,
 .year-btn-custom:focus,
-.year-btn-custom:hover{
+.year-btn-custom:hover {
     background-color: rgb(124, 186, 1);
     margin: 10%;
     width: 100%;
@@ -73,7 +73,7 @@ hr {
 }
 .launch-search-btn-custom:active,
 .launch-search-btn-custom:focus,
-.launch-search-btn-custom:hover{
+.launch-search-btn-custom:hover {
     background-color: rgb(124, 186, 1);
     margin: 10%;
     width: 100%;
@@ -89,7 +89,7 @@ hr {
 }
 .land-search-btn-custom:active,
 .land-search-btn-custom:focus,
-.land-search-btn-custom:hover{
+.land-search-btn-custom:hover {
     background-color: rgb(124, 186, 1);
     margin: 10%;
     width: 100%;
@@ -116,7 +116,7 @@ hr {
     div.hide-xs {
         display: none;
     }
-    div.hide-md {
+    div.show-md {
         display: none;
     }
 }
@@ -126,5 +126,21 @@ hr {
     }
     div.hide-sm {
         display: none;
+    }
+}
+@media screen and (max-width: 768px) {
+    div.sidenav-custom {
+        width: 60%;
+        margin-left: 18%;
+        margin-right: 20%;
+    }
+    .year-btn-custom {
+        background-color: rgb(197, 224, 155);
+        margin: 10%;
+        width: 100%;
+        padding-left: 10%;
+        padding-right: 10%;
+        outline: none !important;
+        text-align: center;
     }
 }

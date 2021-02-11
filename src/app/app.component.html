@@ -2,13 +2,14 @@
 <nav class="navbar visible-xs">
     <div class="container-fluid">
         <div class="row content">
-            <div class="col-sm-3 sidenav sidenav-custom">
+            <div class="col-xs-12 sidenav sidenav-custom">
                 <app-side-nav-filter-header [filterTitleHeader]="filterTitleHeader"></app-side-nav-filter-header>
                 <p class="sidenav-subheader">{{ filterOnYearHeader | titlecase}}</p>
                 <hr>
                 <div *ngFor="let year of arrayYearForFilter">
-                    <div class="col-sm-6">
-                        <button class="btn btn-default year-btn-custom" (click)="onFilterYearSearch(year)">{{ year
+                    <div class="col-xs-6">
+                        <button class="btn year-btn-custom" (keyup)="onKeyupEvent($event)"
+                            (click)="onFilterYearSearch(year)">{{ year
                             }}</button>
                     </div>
                 </div>
@@ -19,26 +20,26 @@
                 </div>
                 <p class="sidenav-subheader">{{ filterOnSucessfullLaunch | titlecase}}</p>
                 <hr>
-                <div>
-                    <div class="col-sm-6">
-                        <button class="btn btn-default year-btn-custom"
-                            (click)="onFilterLaunchSearch($event, 'true')">True</button>
+                <div (click)="onLaunchButtonGroupClick($event)">
+                    <div class="col-xs-6">
+                        <button class="btn launch-search-btn-custom"
+                            (click)="onFilterLaunchSearch($event,'true')">True</button>
                     </div>
-                    <div class="col-sm-6">
-                        <button class="btn btn-default year-btn-custom"
+                    <div class="col-xs-6">
+                        <button class="btn launch-search-btn-custom"
                             (click)="onFilterLaunchSearch($event,'false')">False</button>
                     </div>
                 </div>
                 <p class="sidenav-subheader">{{ filterOnSucessfullLand | titlecase}}</p>
                 <hr>
                 <div>
-                    <div class="col-sm-6">
-                        <button class="btn btn-default year-btn-custom"
+                    <div class="col-xs-6">
+                        <button class="btn land-search-btn-custom"
                             (click)="onFilterLandSearch($event, 'true')">True</button>
                     </div>
-                    <div class="col-sm-6">
-                        <button class="btn btn-default year-btn-custom"
-                        (click)="onFilterLandSearch($event, 'true')">False</button>
+                    <div class="col-xs-6">
+                        <button class="btn land-search-btn-custom"
+                            (click)="onFilterLandSearch($event, 'true')">False</button>
                     </div>
                 </div>
             </div>
@@ -54,7 +55,8 @@
             <hr>
             <div *ngFor="let year of arrayYearForFilter">
                 <div class="col-sm-6">
-                    <button class="btn year-btn-custom" (keyup)="onKeyupEvent($event)" (click)="onFilterYearSearch(year)">{{ year
+                    <button class="btn year-btn-custom" (keyup)="onKeyupEvent($event)"
+                        (click)="onFilterYearSearch(year)">{{ year
                         }}</button>
                 </div>
             </div>
@@ -67,7 +69,8 @@
             <hr>
             <div (click)="onLaunchButtonGroupClick($event)">
                 <div class="col-sm-6">
-                    <button class="btn launch-search-btn-custom" (click)="onFilterLaunchSearch($event,'true')">True</button>
+                    <button class="btn launch-search-btn-custom"
+                        (click)="onFilterLaunchSearch($event,'true')">True</button>
                 </div>
                 <div class="col-sm-6">
                     <button class="btn launch-search-btn-custom"
@@ -82,7 +85,8 @@
                         (click)="onFilterLandSearch($event, 'true')">True</button>
                 </div>
                 <div class="col-sm-6">
-                    <button class="btn land-search-btn-custom" (click)="onFilterLandSearch($event, 'true')">False</button>
+                    <button class="btn land-search-btn-custom"
+                        (click)="onFilterLandSearch($event, 'true')">False</button>
                 </div>
             </div>
         </div>
@@ -109,7 +113,7 @@
                 </div>
             </div>
             <!-- For desktop level view -->
-            <div class="row hide-md">
+            <div class="row visible-md visible-lg show-md">
                 <div class="col-sm-3" *ngFor="let responseData of responseDatas">
                     <div class="well">
                         <div class="card">
