@@ -3,30 +3,44 @@
     <div class="container-fluid">
         <div class="row content">
             <div class="col-sm-3 sidenav sidenav-custom">
-                <h3 class="side-header">Head</h3>
+                <app-side-nav-filter-header [filterTitleHeader]="filterTitleHeader"></app-side-nav-filter-header>
                 <p class="sidenav-subheader">{{ filterOnYearHeader | titlecase}}</p>
                 <hr>
-                <ul class="list-group ul1">
-                    <li class="list-group-item l1" *ngFor="let year of arrayYearForFilter">
-                        <span class="list-item-text" (click)="onFilterYearSearch(year)">{{ year }}</span>
-                    </li>
-                </ul>
+                <div *ngFor="let year of arrayYearForFilter">
+                    <div class="col-sm-6">
+                        <button class="btn btn-default year-btn-custom" (click)="onFilterYearSearch(year)">{{ year
+                            }}</button>
+                    </div>
+                </div>
+                <!-- Dummy button whose visibility is set to hidden
+            this is used when the number of year counter is odd  -->
+                <div *ngIf="arrayYearForFilter?.length % 2 == 1" class="col-sm-6">
+                    <button class="btn btn-default year-btn-custom" style="visibility: hidden;">Dummy</button>
+                </div>
                 <p class="sidenav-subheader">{{ filterOnSucessfullLaunch | titlecase}}</p>
                 <hr>
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <span class="list-item-text" (click)="onFilterLaunchSearch('true')">True</span>
-                        <span class="list-item-text" (click)="onFilterLaunchSearch('false')">False</span>
-                    </li>
-                </ul>
+                <div>
+                    <div class="col-sm-6">
+                        <button class="btn btn-default year-btn-custom"
+                            (click)="onFilterLaunchSearch($event, 'true')">True</button>
+                    </div>
+                    <div class="col-sm-6">
+                        <button class="btn btn-default year-btn-custom"
+                            (click)="onFilterLaunchSearch($event,'false')">False</button>
+                    </div>
+                </div>
                 <p class="sidenav-subheader">{{ filterOnSucessfullLand | titlecase}}</p>
                 <hr>
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <span class="list-item-text" (click)="onFilterLandSearch('true')">True</span>
-                        <span class="list-item-text" (click)="onFilterLandSearch('false')">False</span>
-                    </li>
-                </ul>
+                <div>
+                    <div class="col-sm-6">
+                        <button class="btn btn-default year-btn-custom"
+                            (click)="onFilterLandSearch($event, 'true')">True</button>
+                    </div>
+                    <div class="col-sm-6">
+                        <button class="btn btn-default year-btn-custom"
+                        (click)="onFilterLandSearch($event, 'true')">False</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -35,30 +49,42 @@
 <div class="container-fluid">
     <div class="row content">
         <div class="col-sm-3 sidenav hidden-xs">
-            <h3 class="side-header">{{ filterTitleHeader | titlecase }}</h3>
+            <app-side-nav-filter-header [filterTitleHeader]="filterTitleHeader"></app-side-nav-filter-header>
             <p class="sidenav-subheader">{{ filterOnYearHeader | titlecase}}</p>
             <hr>
-            <ul class="list-group ul1">
-                <li class="list-group-item l1" *ngFor="let year of arrayYearForFilter">
-                    <span class="list-item-text" (click)="onFilterYearSearch(year)">{{ year }}</span>
-                </li>
-            </ul>
+            <div *ngFor="let year of arrayYearForFilter">
+                <div class="col-sm-6">
+                    <button class="btn year-btn-custom" (keyup)="onKeyupEvent($event)" (click)="onFilterYearSearch(year)">{{ year
+                        }}</button>
+                </div>
+            </div>
+            <!-- Dummy button whose visibility is set to hidden
+            this is used when the number of year counter is odd  -->
+            <div *ngIf="arrayYearForFilter?.length % 2 == 1" class="col-sm-6">
+                <button class="btn btn-default year-btn-custom" style="visibility: hidden;">Dummy</button>
+            </div>
             <p class="sidenav-subheader">{{ filterOnSucessfullLaunch | titlecase}}</p>
             <hr>
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <span class="list-item-text" (click)="onFilterLaunchSearch('true')">True</span>
-                    <span class="list-item-text" (click)="onFilterLaunchSearch('false')">False</span>
-                </li>
-            </ul>
+            <div (click)="onLaunchButtonGroupClick($event)">
+                <div class="col-sm-6">
+                    <button class="btn launch-search-btn-custom" (click)="onFilterLaunchSearch($event,'true')">True</button>
+                </div>
+                <div class="col-sm-6">
+                    <button class="btn launch-search-btn-custom"
+                        (click)="onFilterLaunchSearch($event,'false')">False</button>
+                </div>
+            </div>
             <p class="sidenav-subheader">{{ filterOnSucessfullLand | titlecase}}</p>
             <hr>
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <span class="list-item-text" (click)="onFilterLandSearch('true')">True</span>
-                    <span class="list-item-text" (click)="onFilterLandSearch('false')">False</span>
-                </li>
-            </ul>
+            <div>
+                <div class="col-sm-6">
+                    <button class="btn land-search-btn-custom"
+                        (click)="onFilterLandSearch($event, 'true')">True</button>
+                </div>
+                <div class="col-sm-6">
+                    <button class="btn land-search-btn-custom" (click)="onFilterLandSearch($event, 'true')">False</button>
+                </div>
+            </div>
         </div>
         <br>
         <div class="col-sm-9">

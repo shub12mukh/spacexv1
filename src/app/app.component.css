@@ -1,11 +1,3 @@
-.side-header {
-    color: black;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 22px;
-    font-style: normal;
-    font-weight: bold;
-    margin: 10px;
-}
 .sidenav-subheader {
     text-align: center;
     margin-bottom: 0px;
@@ -39,7 +31,7 @@ ul > li:active {
     column-count: 2;
 }
 .well {
-    height: 500px;
+    height: 460px;
     background-color: white;
 }
 .well-xs {
@@ -50,25 +42,59 @@ ul > li:active {
 .image-span-bg-color-grey {
     background-color: rgb(242, 242, 242);
 }
-ol > li {
-    list-style-type: disc;
-    color: blue;
-}
-.ul2 {
-    display: inline;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-.li2 {
-    display: inline-block;
-    width: 50%;
-}
-hr{
+hr {
     width: 85% !important;
     margin-top: 2px !important;
     border-top: 2px solid #eee !important;
     margin-bottom: 12px !important;
+}
+.year-btn-custom {
+    background-color: rgb(197, 224, 155);
+    margin: 10%;
+    width: 100%;
+    padding: 10px;
+    outline: none !important;
+}
+.year-btn-custom:active,
+.year-btn-custom:focus,
+.year-btn-custom:hover{
+    background-color: rgb(124, 186, 1);
+    margin: 10%;
+    width: 100%;
+    padding: 10px;
+    outline: none !important;
+}
+.launch-search-btn-custom {
+    background-color: rgb(197, 224, 155);
+    margin: 10%;
+    width: 100%;
+    padding: 10px;
+    outline: none !important;
+}
+.launch-search-btn-custom:active,
+.launch-search-btn-custom:focus,
+.launch-search-btn-custom:hover{
+    background-color: rgb(124, 186, 1);
+    margin: 10%;
+    width: 100%;
+    padding: 10px;
+    outline: none !important;
+}
+.land-search-btn-custom {
+    background-color: rgb(197, 224, 155);
+    margin: 10%;
+    width: 100%;
+    padding: 10px;
+    outline: none !important;
+}
+.land-search-btn-custom:active,
+.land-search-btn-custom:focus,
+.land-search-btn-custom:hover{
+    background-color: rgb(124, 186, 1);
+    margin: 10%;
+    width: 100%;
+    padding: 10px;
+    outline: none !important;
 }
 @media only screen and (max-width: 350px) {
     .well-xs {
@@ -94,7 +120,7 @@ hr{
         display: none;
     }
 }
-@media screen and (min-width: 1024px){
+@media screen and (min-width: 1024px) {
     div.hide-xs {
         display: none;
     }
