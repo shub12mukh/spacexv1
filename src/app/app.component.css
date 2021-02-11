@@ -55,9 +55,7 @@ hr {
     padding: 10px;
     outline: none !important;
 }
-.year-btn-custom:active,
-.year-btn-custom:focus,
-.year-btn-custom:hover {
+.year-btn-custom-focus{
     background-color: rgb(124, 186, 1);
     margin: 10%;
     width: 100%;
@@ -71,9 +69,7 @@ hr {
     padding: 10px;
     outline: none !important;
 }
-.launch-search-btn-custom:active,
-.launch-search-btn-custom:focus,
-.launch-search-btn-custom:hover {
+.launch-focus {
     background-color: rgb(124, 186, 1);
     margin: 10%;
     width: 100%;
@@ -87,9 +83,7 @@ hr {
     padding: 10px;
     outline: none !important;
 }
-.land-search-btn-custom:active,
-.land-search-btn-custom:focus,
-.land-search-btn-custom:hover {
+.land-focus {
     background-color: rgb(124, 186, 1);
     margin: 10%;
     width: 100%;

@@ -9,24 +9,24 @@
                 <div *ngFor="let year of arrayYearForFilter">
                     <div class="col-xs-6">
                         <button class="btn year-btn-custom" (keyup)="onKeyupEvent($event)"
-                            (click)="onFilterYearSearch(year)">{{ year
+                            (click)="onFilterYearSearch($event, year)">{{ year
                             }}</button>
                     </div>
                 </div>
                 <!-- Dummy button whose visibility is set to hidden
             this is used when the number of year counter is odd  -->
-                <div *ngIf="arrayYearForFilter?.length % 2 == 1" class="col-sm-6">
-                    <button class="btn btn-default year-btn-custom" style="visibility: hidden;">Dummy</button>
+                <div *ngIf="arrayYearForFilter?.length % 2 == 1" class="col-xs-6">
+                    <button class="btn year-btn-custom" style="visibility: hidden;">Dummy</button>
                 </div>
                 <p class="sidenav-subheader">{{ filterOnSucessfullLaunch | titlecase}}</p>
                 <hr>
-                <div (click)="onLaunchButtonGroupClick($event)">
+                <div>
                     <div class="col-xs-6">
-                        <button class="btn launch-search-btn-custom"
+                        <button class="{{ launchBtntrueF ? 'btn launch-focus' : 'btn land-search-btn-custom' }}"
                             (click)="onFilterLaunchSearch($event,'true')">True</button>
                     </div>
                     <div class="col-xs-6">
-                        <button class="btn launch-search-btn-custom"
+                        <button class="{{ launchBtnfalseF ? 'btn launch-focus' : 'btn land-search-btn-custom' }}"
                             (click)="onFilterLaunchSearch($event,'false')">False</button>
                     </div>
                 </div>
@@ -34,12 +34,12 @@
                 <hr>
                 <div>
                     <div class="col-xs-6">
-                        <button class="btn land-search-btn-custom"
+                        <button class="{{ landBtntrueF ? 'btn launch-focus' : 'btn land-search-btn-custom' }}"
                             (click)="onFilterLandSearch($event, 'true')">True</button>
                     </div>
                     <div class="col-xs-6">
-                        <button class="btn land-search-btn-custom"
-                            (click)="onFilterLandSearch($event, 'true')">False</button>
+                        <button class="{{ landBtnfalseF ? 'btn launch-focus' : 'btn land-search-btn-custom' }}"
+                            (click)="onFilterLandSearch($event, 'false')">False</button>
                     </div>
                 </div>
             </div>
@@ -56,24 +56,24 @@
             <div *ngFor="let year of arrayYearForFilter">
                 <div class="col-sm-6">
                     <button class="btn year-btn-custom" (keyup)="onKeyupEvent($event)"
-                        (click)="onFilterYearSearch(year)">{{ year
+                        (click)="onFilterYearSearch($event, year)">{{ year
                         }}</button>
                 </div>
             </div>
             <!-- Dummy button whose visibility is set to hidden
             this is used when the number of year counter is odd  -->
             <div *ngIf="arrayYearForFilter?.length % 2 == 1" class="col-sm-6">
-                <button class="btn btn-default year-btn-custom" style="visibility: hidden;">Dummy</button>
+                <button class="btn year-btn-custom" style="visibility: hidden;">Dummy</button>
             </div>
             <p class="sidenav-subheader">{{ filterOnSucessfullLaunch | titlecase}}</p>
             <hr>
-            <div (click)="onLaunchButtonGroupClick($event)">
+            <div>
                 <div class="col-sm-6">
-                    <button class="btn launch-search-btn-custom"
+                    <button class="{{ launchBtntrueF ? 'btn launch-focus' : 'btn land-search-btn-custom' }}"
                         (click)="onFilterLaunchSearch($event,'true')">True</button>
                 </div>
                 <div class="col-sm-6">
-                    <button class="btn launch-search-btn-custom"
+                    <button class="{{ launchBtnfalseF ? 'btn launch-focus' : 'btn land-search-btn-custom' }}"
                         (click)="onFilterLaunchSearch($event,'false')">False</button>
                 </div>
             </div>
@@ -81,12 +81,12 @@
             <hr>
             <div>
                 <div class="col-sm-6">
-                    <button class="btn land-search-btn-custom"
+                    <button class="{{ landBtntrueF ? 'btn launch-focus' : 'btn land-search-btn-custom' }}"
                         (click)="onFilterLandSearch($event, 'true')">True</button>
                 </div>
                 <div class="col-sm-6">
-                    <button class="btn land-search-btn-custom"
-                        (click)="onFilterLandSearch($event, 'true')">False</button>
+                    <button class="{{ landBtnfalseF ? 'btn launch-focus' : 'btn land-search-btn-custom' }}"
+                        (click)="onFilterLandSearch($event, 'false')">False</button>
                 </div>
             </div>
         </div>

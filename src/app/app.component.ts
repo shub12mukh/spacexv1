@@ -1,3 +1,4 @@
+import { ElementRef } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { ApicallsService } from './apicalls.service';
 import { RequestModel } from './request-model';
@@ -15,10 +16,15 @@ export class AppComponent implements OnInit {
   filterOnSucessfullLaunch = 'successful launch';
   filterOnSucessfullLand = 'successful land';
   yearName;
+  launchBtntrueF :boolean = false;
+  launchBtnfalseF :boolean = false;
+  landBtntrueF :boolean = false;
+  landBtnfalseF :boolean = false;
   responseDatas: any[];
+  activeYearFilter: string[] = [];
   requestParam = new RequestModel();
   developedBy: string = "developed by shubham mukherjee";
-  constructor(private api: ApicallsService) {
+  constructor(private api: ApicallsService,private elem: ElementRef) {
 
   };
   ngOnInit() {
@@ -29,7 +35,17 @@ export class AppComponent implements OnInit {
       this.responseDatas = data;
     });
   }
-  onFilterYearSearch(year: String) {
+  onFilterYearSearch($event, year: String) {
+    let eleTargetSrc = $event.target || $event.srcElement;
+    let element = this.elem.nativeElement.querySelectorAll('.year-btn-custom');
+    let elementF = this.elem.nativeElement.querySelectorAll('.year-btn-custom-focus');
+    element.forEach( ele => {
+      ele.classList = "btn year-btn-custom";
+    });
+    elementF.forEach( ele => {
+      ele.classList = "btn year-btn-custom";
+    })
+    eleTargetSrc.className = "btn year-btn-custom-focus";
     this.requestParam.launch_year = year;
     this.api.getFilterData(this.requestParam).subscribe(data => {
       this.responseDatas = data;
@@ -38,30 +54,36 @@ export class AppComponent implements OnInit {
   onKeyupEvent($event){
     if($event.key === "Tab"){
       const year = $event.path[0]?.childNodes[0]?.data;
-      this.onFilterYearSearch(year);
+      this.onFilterYearSearch($event, year);
     }
   }
   onFilterLaunchSearch(e, flag: String) {
-    const classList = e.target.classList;
-    const classes = e.target.className;
-    console.log(classList, classes);
-    classList.add('active');
-    console.log(classList, classes);
-    // this.requestParam.launch_success = flag;
-    // this.api.getFilterData(this.requestParam).subscribe(data => {
-    //   this.responseDatas = data;
-    // });
+    if(flag==='true'){
+      this.launchBtntrueF= true;
+      this.launchBtnfalseF = false;
+    } 
+    else {
+      this.launchBtntrueF= false;
+      this.launchBtnfalseF = true;
+    }
+    this.requestParam.launch_success = flag;
+    this.api.getFilterData(this.requestParam).subscribe(data => {
+      this.responseDatas = data;
+    });
   }
   onFilterLandSearch(e, flag: String) {
-    const classList = e.target.classList;
-    const classes = e.target.className;
-    console.log(classList, classes);
-    classList.add('active');
-    console.log(classList, classes);
-    // this.requestParam.land_success = flag;
-    // this.api.getFilterData(this.requestParam).subscribe(data => {
-    //   this.responseDatas = data;
-    // });
+    if(flag==='true'){
+      this.landBtntrueF= true;
+      this.landBtnfalseF = false;
+    } 
+    else {
+      this.landBtntrueF= false;
+      this.landBtnfalseF = true;
+    }
+    this.requestParam.land_success = flag;
+    this.api.getFilterData(this.requestParam).subscribe(data => {
+      this.responseDatas = data;
+    });
   }
   getAllYearFromYear(fromYear: number): number[] {
     let arrYear: number[] = [];
@@ -70,34 +92,9 @@ export class AppComponent implements OnInit {
     }
     return arrYear;
   }
-  onLandButtonGroupClick($event) {
-    // let clickedElement = $event.target || $event.srcElement;
-    // console.log(clickedElement);
-    // console.log(clickedElement.parentElement);
-    // if (clickedElement.nodeName === "BUTTON") {
-    //   console.log(clickedElement.nodeName);
-    //   let isCertainButtonAlreadyActive = clickedElement.parentElement.querySelector(".land-profile");
-    //   console.log(isCertainButtonAlreadyActive);
-    //   // if a Button already has Class: .active
-    //   if (isCertainButtonAlreadyActive) {
-    //     isCertainButtonAlreadyActive.classList.remove("active");
-    //   }
-
-    //   clickedElement.className += " active";
-    // }
-  }
-  onLaunchButtonGroupClick($event) {
-    // let clickedElement = $event.target || $event.srcElement;
-
-    // if (clickedElement.nodeName === "BUTTON") {
-
-    //   let isCertainButtonAlreadyActive = clickedElement.parentElement.querySelector(".launch-profile");
-    //   // if a Button already has Class: .active
-    //   if (isCertainButtonAlreadyActive) {
-    //     isCertainButtonAlreadyActive.classList.remove("active");
-    //   }
-
-    //   clickedElement.className += " active";
-    // }
+  getActiveYearFilter(year: string): boolean{
+    if(year === "2006")
+      return true;
+    else return false;
   }
 }
